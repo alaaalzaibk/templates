@@ -1,5 +1,72 @@
-<HTML>
-  <body>
-  <p> ALAA </P>
-  </body>
-</HTML>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Template Gallery</title>
+    <style>
+        .template {
+            margin: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: 1px solid #eee;
+            background: white;
+        }
+        .template-actions {
+            margin: 10px 0;
+        }
+        .template-link {
+            display: inline-block;
+            margin-right: 10px;
+            padding: 5px 10px;
+            background: #f0f0f0;
+            border-radius: 3px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Template Selection</h1>
+    <div id="template-container"></div>
+
+    <script>
+        // List of all templates with their display names
+        const templates = [
+            { id: 'woody', name: 'woody' },
+            { id: 'tale-1.0.0', name: 'tale' },
+          { id: 'seomaster', name: 'seomaster' },
+          { id: 'restoran', name: 'restoran' },
+          { id: '15%20startup2-1.0.0/startup2-1.0.0/', name: 'startup' },
+          // { id: 'restoran', name: 'restoran' },
+            // Add all 100 templates here
+        ];
+
+        const container = document.getElementById('template-container');
+
+        templates.forEach(template => {
+            const templateDiv = document.createElement('div');
+            templateDiv.className = 'template';
+            templateDiv.innerHTML = `
+                <h2>${template.name}</h2>
+                <div class="template-actions">
+                    <a href="templates/${template.id}/index.html" 
+                       target="_blank" 
+                       class="template-link">
+                       Open Full Page
+                    </a>
+                    <a href="https://alaaalzaibk.github.io/templates/${template.id}" 
+                       target="_blank" 
+                       class="template-link">
+                       View 
+                    </a>
+                </div>
+                <iframe src="templates/${template.id}/index.html"></iframe>
+            `;
+            container.appendChild(templateDiv);
+        });
+    </script>
+</body>
+</html>
